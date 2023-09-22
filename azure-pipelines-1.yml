@@ -21,12 +21,9 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- task: DownloadPackage@1
+- task: DownloadBuildArtifacts@1
   inputs:
-    packageType: 'maven'
-    feed: '/871ece27-e85d-4532-8875-fa3f5711ee26'
-    view: 'c51d7573-000a-4897-bb5c-aca696b72838'
-    definition: 'test'
-    version: '1'
-    files: '**/f8'
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'drop'
     downloadPath: '$(System.ArtifactsDirectory)'
